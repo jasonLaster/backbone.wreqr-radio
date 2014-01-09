@@ -27,7 +27,7 @@ To begin, extend your object with the `WreqrChannel` functionality using Undersc
 
 Attach a channel to your object. If `name` is omitted, `local` will be used as the name. If any one of the messaging systems are omitted, a new instance of all three will be created for you.
 
-`~~attachChannel( [channel] [, newName] )~~`
+~~`attachChannel( [channel] [, newName] )`~~
 
 ~~Attach an existing channel to your object. Pass a `newName` if you'd like to reference it through a different name on this object.~~ (To do)
 
@@ -101,4 +101,3 @@ A channel object has four properties:
 #### Storing Channels
 
 Channels are stored in a `_channels` property. It is not recommended that you access this property directly.
-
