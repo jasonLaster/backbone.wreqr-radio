@@ -1,7 +1,7 @@
-Backbone.Channel
+Backbone.WreqrChannel
 ================
 
-Backbone.Channel is a pattern for organizing multiple instances of `Backbone.Wreqr` into groups called channels.
+Backbone.WreqrChannel is a pattern for organizing multiple instances of `Backbone.Wreqr` into groups called channels.
 
 ### About
 
