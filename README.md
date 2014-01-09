@@ -21,7 +21,7 @@ To begin, extend your object with the `WreqrChannel` functionality using Undersc
 
 `_.extend( myObj, Backbone.WreqrChannel );`
 
-#### Attach a Channel
+### Attach a Channel
 
 `attachChannel( [channelName] [, ventInstance, commandsInstance, reqresInstance ] )`
 
@@ -31,30 +31,32 @@ Attach a channel to your object. If `name` is omitted, `local` will be used as t
 
 ~~Attach an existing channel to your object. Pass a `newName` if you'd like to reference it through a different name on this object.~~ (To do)
 
-#### Detach a Channel
+### Detach a Channel
 
 `detachChannel( [channelName] [, off ] )`
 
 Removes a channel from the object. If `channelName` is omitted all channels will be removed. Pass `true` for the second argument to shut the channel down completely by removing all of its listeners.
 
-#### Reset a Channel
+### Reset a Channel
 
 `resetChannel( [channelName] )`
 
 Remove all of the listeners from a channel. If a name is omitted, every channel on the object will be reset.
 
-#### Access a Channel
+### Access a Channel
 
 `channel( channelName )`
 
 Returns a channel by name.
 
-#### Connect Events to a Channel
+### Connect Events to a Channel
 
 You may connect events as usual to your messaging systems on each channel. For instance, `this.channel( 'local' ).vent.on( 'someEvent', someCallback );` will attach listeners to the `vent` on the `local` channel. But WreqrChannel provides three convenience functions to make this a bit more tolerable when attaching a large number of events:
 
 `connectEvents( ventsHash, channelName )`
+
 `connectComands( commandsHash, channelName )`
+
 `connectRequests( requestsHash, channelName )`
 
 The first argument of these functions takes the same form as the `events` hash that can be passed into Backbone. An example might explain this better:
@@ -74,11 +76,29 @@ var ventsHash = {
 this.connectEvents( ventsHash, 'someChannel' );
 ```
 
+### Start a Channel
+
+`startChannel( channelName )`
+
+When you attach a new channel you may wish to attach a number of events to each messaging system. This convenience function does a lot of the set up work for you. First, it merges events from `_defaultEvents[ channelName ]` and `channelsHashes[ channelName ]` objects, if they exist. It then attaches the listeners to the appropriate messaging system on the channel.
+
+Typically if you make a new Object that you wish people to extend from you would set `_defaultEvents` on that Object. Then in the `initialize` function the user would have the opportunity to overwrite those defaults in `channelsHashes`.
+
+### Internals
+
 #### The `channel` object
 
 A channel object has four properties:
 
 `channelName` - The name of the channel
+
 `vent` - An instance of Wreqr.Vent
+
 `commands` - An instance of Wreqr.Commands
+
 `reqres` - An instance of Wreqr.Reqres
+
+#### Storing Channels
+
+Channels are stored in a `_channels` property. It is not recommended that you access this property directly.
+

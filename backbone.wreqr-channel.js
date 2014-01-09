@@ -166,7 +166,9 @@
 
     // Sets up the listeners on the channel by merging `this._defaultEvents`
     // with `this.channelsHash` and applying them
-    _configChannel: function( channel ) {
+    startChannel: function( channelName ) {
+
+      var channel = this.channel( 'channelName' );
 
       if ( !channel ) {
         return;
@@ -188,10 +190,11 @@
         defaultRequests = channelDefaults.requests;
       }
       // Get events set up later; perhaps in an `initialize` function
-      if ( this.channelsHash ) {
-        nVent = this.channelsHash.vent;
-        nCommands = this.channelsHash.commands;
-        nRequests = this.channelsHash.requests;
+      if ( this.channelsHashes ) {
+        var thisChannel = this.channelsHashes[ channelName ];
+        nVent = thisChannel.vent;
+        nCommands = thisChannel.commands;
+        nRequests = thisChannel.requests;
       }
 
       var ventHash = _.extend({}, defaultVent, nVent );
