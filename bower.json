@@ -1,0 +1,32 @@
+{
+  "name": "backbone.wreqr-channel",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Puppets/Backbone.WreqrChannel",
+  "authors": [
+    "Jmeas <jellyes2@gmail.com>"
+  ],
+  "description": "An organization system for managing multiple Wreqr instances.",
+  "main": "backbone.wreqr-channel.js",
+  "keywords": [
+    "backbone",
+    "marionette",
+    "wreqr",
+    "events",
+    "decoupled",
+    "messaging",
+    "message"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "underscore": "~1.5.2",
+    "backbone": "~1.1.0",
+    "backbone.wreqr": "~0.2.0"
+  }
+}

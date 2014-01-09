@@ -1,0 +1,31 @@
+{
+  "name": "backbone.wreqr-channel",
+  "version": "0.1.0",
+  "description": "An organizational system for managing multiple Wreqr instances.",
+  "main": "backbone.wreqr-channel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Puppets/Backbone.WreqrChannel.git"
+  },
+  "keywords": [
+    "backbone",
+    "marionette",
+    "events",
+    "wreqr",
+    "decoupled",
+    "messaging",
+    "message"
+  ],
+  "author": "Jmeas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Puppets/Backbone.WreqrChannel/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.7"
+  }
+}
