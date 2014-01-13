@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <title>Backbone.WreqrChannel Test</title>
+  <link rel='stylesheet' href='../bower_components/mocha/mocha.css' />
+</head>
+<body>
+  <!-- Required for browser reporter -->
+  <div id='mocha'></div>
+
+  <!-- Load & configure mocha -->
+  <script src='../bower_components/mocha/mocha.js'></script>
+  <script type='text/javascript' charset='utf-8'>
+    mocha.setup('bdd');
+  </script>
+
+  <!-- Load & configure chai & sinon -->
+  <script src='../bower_components/chai/chai.js'></script>
+  <script src='../bower_components/sinon-chai/lib/sinon-chai.js'></script>
+  <script src='../bower_components/sinonjs/sinon.js'></script>
+  <script>
+    var expect = chai.expect;
+  </script>
+
+  <!-- Load any dependencies (bower components) -->
+  <script src='../bower_components/underscore/underscore.js'></script>
+  <script src='../bower_components/backbone/backbone.js'></script>
+  <script src='../bower_components/backbone.wreqr/lib/backbone.wreqr.js'></script>
+  
+  <!-- Load the test scripts -->
+  <script src='../backbone.wreqr-station.js'></script>
+
+  <!-- Of course, the specs themselves as well -->
+  <script src='helpers/helpers.js'></script>
+  <script src='spec/basic.js'></script>
+  <script src='spec/channel/create.js'></script>
+  <script src='spec/channel/reset.js'></script>
+  <script src='spec/channel/connect-events.js'></script>
+  <script src='spec/channel/connect-commands.js'></script>
+  <script src='spec/channel/connect-requests.js'></script>
+  <script src='spec/station/attach-channel.js'></script>
+  <script src='spec/station/detach-channel.js'></script>
+  <script src='spec/station/detach-all-channels.js'></script>
+  <script src='spec/station/get-channel.js'></script>
+  <script src='spec/station/has-channel.js'></script>
+  <script src='spec/station/start-channel.js'></script>
+
+  <!-- Run mocha -->
+  <script type='text/javascript'>
+    mocha
+      .globals(['Backbone', '_']) // Globals
+      .run();
+  </script>
+
+</body>
+</html>

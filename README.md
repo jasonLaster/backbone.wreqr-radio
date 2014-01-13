@@ -1,69 +1,55 @@
-Backbone.Channel
+Backbone.WreqrChannel
 ================
 
-Backbone.Channel is a pattern for organizing multiple instances of `Backbone.Wreqr` into groups called channels.
+Backbone.WreqrChannel is a pattern for organizing multiple instances of `Backbone.Wreqr` in a single object called a Channel.
 
-### About
+## About
 
-You might know that `Wreqr` provides three messaging systems (vent, commands, and reqres) for communication in decoupled applications. `WreqrChannel` introduces a new concept called a channel, which is a simply a collection of those three messaging systems bundled together with an associated name.
+The three messaging systems of `Wreqr`, an event aggregator, commands, and request-response, are convenient ways to communicate information within your application. `WreqrChannel` introduces a new concept called a Channel, which is simply a collection of those three messaging systems bundled together with an associated name. It also lets you attach Channels onto any other object in your application, which are called Stations.
 
-With WreqrChannel you can manage as many of these channels as you'd like throughout your application. An example use case is having a channel for each component of your application and a single global channel that connects them.
+With WreqrChannel you can manage as many Channels as you'd like throughout your application. An example use case is having a Channel for each component of your application and a single global Channel that connects them.
 
-### Installation
+## Installation
 
 Clone this repository or install via bower: `bower install backbone.wreqr-channel`
 
-Include the file `backbone.wreqr-channel.js` in your application.
+Include the file `backbone.wreqr-channel.js` in your application's scripts bundle.
 
-### Basic Use
+## Nomenclature
 
-To begin, extend your object with the `WreqrChannel` functionality using Underscore's `extend` method.
+This library consistently uses the following naming convention for each instance of messaging system:
 
-`_.extend( myObj, Backbone.WreqrChannel );`
+`vent: EventAggregator`
 
-### Attach a Channel
+`commands: Commands`
 
-`attachChannel( [channelName] [, ventInstance, commandsInstance, reqresInstance ] )`
+`reqres: RequestResponse`
 
-Attach a channel to your object. If `name` is omitted, `local` will be used as the name. If any one of the messaging systems are omitted, a new instance of all three will be created for you.
+## Channels
 
-~~`attachChannel( [channel] [, newName] )`~~
+### Creating a New Channel
 
-~~Attach an existing channel to your object. Pass a `newName` if you'd like to reference it through a different name on this object.~~ (To do)
+`new Backbone.WreqrChannel( channelName, [vent, commands, reqres ] )`
 
-### Detach a Channel
+Create a new Channel with name `channelName`. If you also pass instances of all three messaging systems then they will be used to construct your Channel. If any are omitted then a new instance of all three will be set up for the Channel.
 
-`detachChannel( [channelName] [, off ] )`
+### Connect Events to the Channel
 
-Removes a channel from the object. If `channelName` is omitted all channels will be removed. Pass `true` for the second argument to shut the channel down completely by removing all of its listeners.
+You may connect events as usual to your messaging systems on each channel. For instance, `myChannel.vent.on( 'someEvent', someCallback );` will attach listeners to the `vent`.
 
-### Reset a Channel
+In addition, Channels have three convenience functions to make this a bit more tolerable when attaching a large number of events:
 
-`resetChannel( [channelName] )`
+`connectEvents( ventsHash )`
 
-Remove all of the listeners from a channel. If a name is omitted, every channel on the object will be reset.
+`connectComands( commandsHash )`
 
-### Access a Channel
+`connectRequests( requestsHash )`
 
-`channel( channelName )`
-
-Returns a channel by name.
-
-### Connect Events to a Channel
-
-You may connect events as usual to your messaging systems on each channel. For instance, `this.channel( 'local' ).vent.on( 'someEvent', someCallback );` will attach listeners to the `vent` on the `local` channel. But WreqrChannel provides three convenience functions to make this a bit more tolerable when attaching a large number of events:
-
-`connectEvents( ventsHash, channelName )`
-
-`connectComands( commandsHash, channelName )`
-
-`connectRequests( requestsHash, channelName )`
-
-The first argument of these functions takes the same form as the `events` hash that can be passed into Backbone. An example might explain this better:
+The first argument of these functions are hashes of events. An example hash might explain them best.
 
 ```
 // Set up a new channel
-this.attachChannel( 'someChannel' );
+var someChannel = new Backbone.WreqrChannel( 'someName' );
 
 // Create the hash of events and their callbacks. The callback can
 // either be the name of a function on `this`, or the function itself
@@ -73,31 +59,63 @@ var ventsHash = {
 };
 
 // Attach them
-this.connectEvents( ventsHash, 'someChannel' );
+someChannel.connectEvents( ventsHash );
 ```
 
-### Start a Channel
+All three connect functions will return the `channel`.
 
-`startChannel( channelName )`
+### Reset the Channel
 
-When you attach a new channel you may wish to attach a number of events to each messaging system. This convenience function does a lot of the set up work for you. First, it merges events from `_defaultEvents[ channelName ]` and `channelsHashes[ channelName ]` objects, if they exist. It then attaches the listeners to the appropriate messaging system on the channel.
+`resetChannel()`
 
-Typically if you make a new Object that you wish people to extend from you would set `_defaultEvents` on that Object. Then in the `initialize` function the user would have the opportunity to overwrite those defaults in `channelsHashes`.
+Remove all of the listeners and handlers for each messaging system on the Channel. The Channel itself is returned from the function.
+
+## Stations
+
+Stations are objects that attach to Channels. This allows them to communicate on those Channels with the other elements of your application.
+
+### Create a Station
+
+Any object at all can become a Station. Simply extend it with `Backbone.WreqrStation` using Underscore's `extend` method.
+
+`_.extend( myObj, Backbone.WreqrStation );`
+
+Once an object has been extended you're free to call any of the following methods on it.
+
+### Attach a Channel
+
+`attachChannel( channel )`
+
+Attach an existing `channel` to your Station. Returns the newly attached Channel.
+
+### Detach a Channel
+
+`detachChannel( channelName [, off ] )`
+
+Removes the Channel with `channelName` from the station, if it's attached. Pass `true` as the second argument to shut the Channel down by removing all of its listeners and handlers. Returns the detached Channel.
+
+### Detach all Channels
+
+`detachAllChannels( [ off ] )`
+
+Detaches all Channels from the Station. Pass `off` as `true` to also reset the Channels, removing all of their listeners.
+
+### Access a Channel
+
+`channel( channelName )`
+
+Returns a Channel by name.
+
+### Check for a Channel
+
+`hasChannel( channelName )`
+
+Determine if you have a channel named `channelName`. Returns `true` or `false`.
+
+
 
 ### Internals
 
-#### The `channel` object
-
-A channel object has four properties:
-
-`channelName` - The name of the channel
-
-`vent` - An instance of Wreqr.Vent
-
-`commands` - An instance of Wreqr.Commands
-
-`reqres` - An instance of Wreqr.Reqres
-
 #### Storing Channels
 
-Channels are stored in a `_channels` property. It is not recommended that you access this property directly.
+Channels are stored in a `_channels` property on the Station. It is not recommended that you access this property directly.
