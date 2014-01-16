@@ -4,22 +4,45 @@ module.exports = function( grunt ) {
 
     uglify: {
       main: {
-        src: 'backbone.wreqr-channel.js',
-        dest: 'backbone.wreqr-channel.min.js'
+        src: 'backbone.wreqr-station.js',
+        dest: 'backbone.wreqr-station.min.js'
+      }
+    },
+
+    jshint: {
+      main: {
+        src: 'backbone.wreqr-station.js'
+      },
+      tests: {
+        options: {
+
+        },
+        // src: [ 'tests/spec/**/*.js' ]
+      }
+    },
+
+    mocha: {
+      options: {
+        run: true
+      },
+      main: {
+        src: [ 'tests/**/*.html' ]
       }
     }
 
   });
 
   var node_modules = [
-    'grunt-contrib-uglify'
+    'grunt-contrib-jshint',
+    'grunt-contrib-uglify',
+    'grunt-mocha'
   ];
 
   node_modules.forEach(function(module) {
     grunt.loadNpmTasks(module);
   });
 
-  // Register tasks
-  grunt.registerTask( "default", [ 'uglify' ] );
+  grunt.registerTask( 'test', [ 'jshint', 'mocha' ] );
+  grunt.registerTask( 'default', [ 'jshint', 'mocha', 'uglify' ] );
 
 };
