@@ -1,5 +1,5 @@
 /*
- * Backbone.WreqrStation
+ * Backbone.WreqrChannel
  * An organizational system for handling multiple Wreqr instances
  *
  */
