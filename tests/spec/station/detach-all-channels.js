@@ -3,11 +3,10 @@ describe('Calling `removeAllChannels` when there are 2 channels', function() {
     var n,
     t1 = 'test',
     t2 = 'test2',
-    t3 = 'test3',
     ch1, ch2,
     chs,
     stub,
-    r1, r2, r3;
+    r1, r2;
 
     beforeEach(function() {
 
