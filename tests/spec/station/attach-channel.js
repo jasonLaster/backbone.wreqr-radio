@@ -4,8 +4,9 @@ describe('Passing a Channel to `attachChannel`', function() {
 
     beforeEach(function() {
 
-      m  = _.extend( new Backbone.Model(), Backbone.WreqrStation );
-      ch = new Backbone.WreqrChannel( name );
+      m  = _.extend( new Backbone.Model(), Backbone.Wreqr.Station );
+      ch = new Backbone.Wreqr.Channel( name );
+      console.log( 'Wreqr:', ch );
       ret = m.attachChannel( ch );
       ch1 = m.channel( name );
       chs = m._channels;

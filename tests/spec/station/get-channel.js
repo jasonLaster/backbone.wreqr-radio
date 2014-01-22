@@ -8,9 +8,9 @@ describe('Passing a channel name to `channel`', function() {
 
     beforeEach(function() {
 
-      n = _.extend( new Backbone.Model(), Backbone.WreqrStation );
-      ch1 = new Backbone.WreqrChannel( t1 );
-      ch2 = new Backbone.WreqrChannel( t2 );
+      n = _.extend( new Backbone.Model(), Backbone.Wreqr.Station );
+      ch1 = new Backbone.Wreqr.Channel( t1 );
+      ch2 = new Backbone.Wreqr.Channel( t2 );
       n.attachChannel( ch1 );
       n.attachChannel( ch2 );
 
@@ -26,7 +26,7 @@ describe('Passing a channel name to `channel`', function() {
     });
 
     it( 'should return the channel you requested when it exists', function() {
-        expect( r1 ).to.be.instanceof( Backbone.WreqrChannel );
+        expect( r1 ).to.be.instanceof( Backbone.Wreqr.Channel );
         expect( r1 ).to.equal( ch1 );
         expect( r2 ).to.equal( ch2 );
     });

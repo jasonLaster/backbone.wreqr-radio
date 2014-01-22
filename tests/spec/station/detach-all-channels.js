@@ -11,10 +11,10 @@ describe('Calling `removeAllChannels` when there are 2 channels', function() {
 
     beforeEach(function() {
 
-      n = _.extend( new Backbone.Model(), Backbone.WreqrStation );
+      n = _.extend( new Backbone.Model(), Backbone.Wreqr.Station );
       stub = sinon.stub( n, 'detachChannel' );
-      ch1 = new Backbone.WreqrChannel( t1 );
-      ch2 = new Backbone.WreqrChannel( t2 );
+      ch1 = new Backbone.Wreqr.Channel( t1 );
+      ch2 = new Backbone.Wreqr.Channel( t2 );
       n.attachChannel( ch1 );
       n.attachChannel( ch2 );
 
@@ -46,10 +46,10 @@ describe('Passing `off` as `true` to `removeAllChannels` when there are 2 channe
 
     beforeEach(function() {
 
-      n = _.extend( new Backbone.Model(), Backbone.WreqrStation );
+      n = _.extend( new Backbone.Model(), Backbone.Wreqr.Station );
       stub = sinon.stub( n, 'detachChannel' );
-      ch1 = new Backbone.WreqrChannel( t1 );
-      ch2 = new Backbone.WreqrChannel( t2 );
+      ch1 = new Backbone.Wreqr.Channel( t1 );
+      ch2 = new Backbone.Wreqr.Channel( t2 );
       n.attachChannel( ch1 );
       n.attachChannel( ch2 );
 

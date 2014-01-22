@@ -8,7 +8,7 @@ describe('Creating a Channel and passing only a name', function() {
 
     beforeEach(function() {
 
-      ch = new Backbone.WreqrChannel( name );
+      ch = new Backbone.Wreqr.Channel( name );
       chName = ch.channelName;
       v = ch.vent;
       c = ch.commands;
@@ -41,7 +41,7 @@ describe('Creating a Channel and passing three messaging systems', function() {
       cT = new Backbone.Wreqr.Commands();
       rT = new Backbone.Wreqr.RequestResponse();
 
-      ch = new Backbone.WreqrChannel( 'test', vT, cT, rT );
+      ch = new Backbone.Wreqr.Channel( 'test', vT, cT, rT );
       v = ch.vent;
       c = ch.commands;
       r = ch.reqres;
@@ -69,7 +69,7 @@ describe('Creating a Channel and only passing some messaging systems', function(
       cT = new Backbone.Wreqr.Commands();
       rT = new Backbone.Wreqr.RequestResponse();
 
-      ch = new Backbone.WreqrChannel( 'test', vT, cT );
+      ch = new Backbone.Wreqr.Channel( 'test', vT, cT );
       v = ch.vent;
       c = ch.commands;
       r = ch.reqres;
@@ -100,7 +100,7 @@ describe('Creating a Channel and not passing messaging systems as arguments', fu
       cT = true;
       rT = Backbone;
 
-      ch = new Backbone.WreqrChannel( 'test', vT, cT, rT );
+      ch = new Backbone.Wreqr.Channel( 'test', vT, cT, rT );
       v = ch.vent;
       c = ch.commands;
       r = ch.reqres;

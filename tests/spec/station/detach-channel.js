@@ -4,8 +4,8 @@ describe('Passing a channelName to `detachChannel`', function() {
 
     beforeEach(function() {
 
-      m  = _.extend( new Backbone.Model(), Backbone.WreqrStation );
-      ch = new Backbone.WreqrChannel( name );
+      m  = _.extend( new Backbone.Model(), Backbone.Wreqr.Station );
+      ch = new Backbone.Wreqr.Channel( name );
       m.attachChannel( ch );
       ret = m.detachChannel( name );
       chs = m._channels;
@@ -26,8 +26,8 @@ describe('Passing off as true when calling `detachChannel`', function() {
 
     beforeEach(function() {
 
-      m  = _.extend( new Backbone.Model(), Backbone.WreqrStation );
-      ch = new Backbone.WreqrChannel( name );
+      m  = _.extend( new Backbone.Model(), Backbone.Wreqr.Station );
+      ch = new Backbone.Wreqr.Channel( name );
       ch1 = m.attachChannel( ch );
       stub = sinon.stub( ch1, 'reset' );
       m.detachChannel( name, true );

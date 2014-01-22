@@ -29,7 +29,7 @@ This library consistently uses the following naming convention for each instance
 
 ### Creating a New Channel
 
-`new Backbone.WreqrChannel( channelName, [vent, commands, reqres ] )`
+`new Backbone.Wreqr.Channel( channelName, [vent, commands, reqres ] )`
 
 Create a new Channel with name `channelName`. If you also pass instances of all three messaging systems then they will be used to construct your Channel. If any are omitted then a new instance of all three will be set up for the Channel.
 
@@ -49,7 +49,7 @@ The first argument of these functions are hashes of events. An example hash migh
 
 ```
 // Set up a new channel
-var someChannel = new Backbone.WreqrChannel( 'someName' );
+var someChannel = new Backbone.Wreqr.Channel( 'someName' );
 
 // Create the hash of events and their callbacks. The callback can
 // either be the name of a function on `this`, or the function itself
@@ -78,7 +78,7 @@ Stations are objects that attach to Channels. This allows them to communicate on
 
 Any object at all can become a Station. Simply extend it with `Backbone.WreqrStation` using Underscore's `extend` method.
 
-`_.extend( myObj, Backbone.WreqrStation );`
+`_.extend( myObj, Backbone.Wreqr.Station );`
 
 Once an object has been extended you're free to call any of the following methods on it.
 

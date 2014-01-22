@@ -17,7 +17,7 @@ describe('Executing `connectRequests` with a hash as the first argument', functi
         lalala: function() {}
       };
 
-      ch = _.extend( new Backbone.WreqrChannel( 'test' ), obj);
+      ch = _.extend( new Backbone.Wreqr.Channel( 'test' ), obj);
 
       requestsHash = {};
       requestsHash[label1] = 'lala';

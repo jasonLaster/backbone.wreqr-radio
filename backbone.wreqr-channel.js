@@ -11,8 +11,8 @@
   if (typeof define === 'function' && define.amd) {
     define(['underscore', 'backbone', 'exports'], function(_, backbone, exports) {
       // Export global even in AMD case in case this script is loaded with
-      // others that may still expect a global Backbone.
-      root.Backbone = factory(root, exports, _, backbone);
+      // others that may still expect a global WreqrChannel.
+      root.WreqrChannel = factory(root, exports, _, backbone);
     });
 
   // Node / CommonJS
@@ -26,17 +26,17 @@
 
   // Otherwise, as a global variable
   } else {
-    root.Backbone = root._.extend( root.Backbone, factory(root, {}, root._, root.Backbone) );
+    root.Backbone.Wreqr = root._.extend( root.Backbone.Wreqr, factory(root, {}, root._, root.Backbone) );
   } 
 
 }(this, function(root, WreqrChannel, _, Backbone) {
 
   'use strict';
 
-  var WreqrExtension = {};
+  var Wreqr = {};
 
   // The channel object. All that it does is hold an instance of each messaging system
-  WreqrExtension.WreqrChannel = function( name, vent, commands, reqres ) {
+  Wreqr.Channel = function( name, vent, commands, reqres ) {
 
     // Channels need a name
     if ( !name ) {
@@ -72,7 +72,7 @@
 
   };
 
-  _.extend( WreqrExtension.WreqrChannel.prototype, {
+  _.extend( Wreqr.Channel.prototype, {
 
     // Remove all handlers from the messaging systems of this channel
     reset: function() {
@@ -139,12 +139,12 @@
 
   });
 
-  WreqrExtension.WreqrStation = {
+  Wreqr.Station = {
 
     // Attach a channel to this station
     attachChannel: function( channel ) {
 
-      if ( !channel || !(channel instanceof Backbone.WreqrChannel) ) {
+      if ( !channel || !(channel instanceof Backbone.Wreqr.Channel) ) {
         return;
       }
 
@@ -221,6 +221,6 @@
 
   };
 
-  return WreqrExtension;
+  return Wreqr;
 
 }));
