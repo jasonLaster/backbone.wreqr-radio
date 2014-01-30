@@ -1,7 +1,7 @@
 backbone.wreqr-radio
 ================
 
-backbone.wreqr-radio is a pattern for organizing multiple instances of `Backbone.Wreqr` into groups called Channels.
+`backbone.wreqr-radio` is a library that allows you to organize multiple instances of `Backbone.Wreqr` into groups called Channels.
 
 ## About
 
@@ -79,3 +79,18 @@ All three connect functions will return the `channel`.
 `resetChannel()`
 
 Remove all of the listeners and handlers for each messaging system on the Channel. Returns the Channel.
+
+## Global API
+
+If you want to communicate on a channel but don't want to keep a reference of it, you can do so through the `radio` object directly.
+
+```js
+// Attach a listener on the vent of `someChannel`
+Backbone.radio.vent.on( 'someChannel', 'some:event', callbackFn );
+
+// Send a command to `someChannel`s commands
+Backbone.radio.commands.execute( 'someChannel', 'myCommand' );
+
+// Attach a handler to the reqres of `someChannel`
+Backbone.radio.reqres.setHandler( 'someChannel', 'aRequest', requestCb );
+```
