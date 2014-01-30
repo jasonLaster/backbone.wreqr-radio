@@ -4,14 +4,14 @@ module.exports = function( grunt ) {
 
     uglify: {
       main: {
-        src: 'backbone.wreqr-channel.js',
-        dest: 'backbone.wreqr-channel.min.js'
+        src: 'backbone.wreqr-radio.js',
+        dest: 'backbone.wreqr-radio.min.js'
       }
     },
 
     jshint: {
       main: {
-        src: 'backbone.wreqr-channel.js'
+        src: 'backbone.wreqr-radio.js'
       },
       tests: {
         options: {

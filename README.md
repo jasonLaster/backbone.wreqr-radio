@@ -1,19 +1,19 @@
-Backbone.WreqrChannel
+Backbone.WreqrRadio
 ================
 
-Backbone.WreqrChannel is a pattern for organizing multiple instances of `Backbone.Wreqr` into groups called Channels.
+Backbone.WreqrRadio is a pattern for organizing multiple instances of `Backbone.Wreqr` into groups called Channels.
 
 ## About
 
-The three messaging systems of `Wreqr`, an event aggregator, commands, and request-response, are convenient ways to communicate information within your application. `WreqrChannel` introduces a new concept called a Channel, which is simply a collection of those three messaging systems bundled together with an associated name. It also lets you attach Channels onto any other object in your application, which are called Stations.
+The three messaging systems of `Wreqr`, an event aggregator, commands, and request-response, are convenient ways to communicate information within your application. `WreqrRadio` introduces a new concept called a Channel, which is simply a collection of those three messaging systems bundled together with an associated name. It also lets you attach Channels onto any other object in your application, which are called Stations.
 
-With WreqrChannel you can manage as many Channels as you'd like throughout your application. An example use case is having a Channel for each component of your application and a single global Channel that connects them.
+With WreqrRadio you can manage as many Channels as you'd like throughout your application. An example use case is having a Channel for each component of your application and a single global Channel that connects them.
 
 ## Installation
 
-Clone this repository or install via bower: `bower install backbone.wreqr-channel`
+Clone this repository or install via bower: `bower install backbone.wreqr-radio`
 
-Include the file `backbone.wreqr-channel.js` in your application's scripts bundle.
+Include the file `backbone.wreqr-radio.js` in your application's scripts bundle.
 
 ## Nomenclature
 

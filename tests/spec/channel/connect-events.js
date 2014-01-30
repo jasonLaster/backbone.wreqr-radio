@@ -16,7 +16,7 @@ describe('Executing `connectEvents` with a hash as the first argument', function
         lalala: function() {}
       };
 
-      ch = _.extend( new Backbone.WreqrChannel( 'test' ), obj);
+      ch = _.extend( new Backbone.Wreqr.Channel( 'test' ), obj);
 
       eventsHash = {};
       eventsHash[label1] = 'lala';
