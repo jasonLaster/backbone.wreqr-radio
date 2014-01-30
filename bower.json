@@ -1,7 +1,7 @@
 {
-  "name": "backbone.wreqr-channel",
-  "version": "0.2.0",
-  "homepage": "https://github.com/Puppets/Backbone.WreqrChannel",
+  "name": "backbone.wreqr-radio",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Puppets/backbone-wreqr-radio",
   "authors": [
     "Jmeas <jellyes2@gmail.com>"
   ],

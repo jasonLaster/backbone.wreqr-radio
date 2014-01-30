@@ -1,24 +1,26 @@
 module.exports = function( grunt ) {
 
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
   grunt.initConfig({
 
     uglify: {
       main: {
-        src: 'backbone.wreqr-channel.js',
-        dest: 'backbone.wreqr-channel.min.js'
+        src: 'backbone.wreqr-radio.js',
+        dest: 'backbone.wreqr-radio.min.js'
       }
     },
 
     jshint: {
       main: {
-        src: 'backbone.wreqr-channel.js'
+        src: 'backbone.wreqr-radio.js'
       },
-      tests: {
-        options: {
+      // tests: {
+      //   options: {
 
-        },
-        // src: [ 'tests/spec/**/*.js' ]
-      }
+      //   },
+      //   src: [ 'tests/spec/**/*.js' ]
+      // }
     },
 
     mocha: {
@@ -30,16 +32,6 @@ module.exports = function( grunt ) {
       }
     }
 
-  });
-
-  var node_modules = [
-    'grunt-contrib-jshint',
-    'grunt-contrib-uglify',
-    'grunt-mocha'
-  ];
-
-  node_modules.forEach(function(module) {
-    grunt.loadNpmTasks(module);
   });
 
   grunt.registerTask( 'test', [ 'jshint', 'mocha' ] );

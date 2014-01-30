@@ -1,15 +1,13 @@
 describe('Loading the script', function() {
 
-    it('should set the WreqrChannel object on the Backbone object', function() {
-
-        expect( Backbone.Wreqr ).to.have.property( 'Channel' );
-
-    });
-    
-    it('should set the WreqrStation object on the Backbone object', function() {
-
-        expect( Backbone.Wreqr ).to.have.property( 'Station' );
-
-    });
+  it('should set the Radio object on the Backbone object', function() {
+      expect(Backbone).to.have.property( 'radio' );
+  });
+  it('should set the Radio object on Backbone.Wreqr', function() {
+      expect(Backbone.Wreqr).to.have.property( 'radio' );
+  });
+  it('should set the Channel object on Backbone.Wreqr', function() {
+      expect(Backbone.Wreqr).to.have.property( 'Channel' );
+  });
 
 });
