@@ -1,14 +1,14 @@
 {
-  "name": "backbone.wreqr-channel",
-  "version": "0.2.0",
+  "name": "backbone.wreqr-radio",
+  "version": "1.0.0",
   "description": "An organizational system for managing multiple Wreqr instances.",
-  "main": "backbone.wreqr-channel.js",
+  "main": "backbone.wreqr-radio.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Puppets/Backbone.WreqrChannel.git"
+    "url": "https://github.com/Puppets/backbone.wreqr-radio.git"
   },
   "keywords": [
     "backbone",
@@ -22,12 +22,13 @@
   "author": "Jmeas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Puppets/Backbone.WreqrChannel/issues"
+    "url": "https://github.com/Puppets/backbone.wreqr-radio/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-mocha": "~0.4.7",
-    "grunt-contrib-jshint": "~0.8.0"
+    "grunt-contrib-jshint": "~0.8.0",
+    "matchdep": "~0.3.0"
   }
 }

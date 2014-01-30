@@ -1,5 +1,5 @@
 /*
- * Backbone.WreqrRadio
+ * backbone.wreqr-radio
  * An organizational system for handling multiple Wreqr instances
  *
  */
@@ -27,16 +27,20 @@
   // Otherwise, as a global variable
   } else {
     root.Backbone.Wreqr = root._.extend( root.Backbone.Wreqr, factory(root, {}, root._, root.Backbone) );
-    root.Backbone.Radio = root.Backbone.Wreqr.Radio;
+    root.Backbone.radio = root.Backbone.Wreqr.radio;
   } 
 
 }(this, function(root, WreqrChannel, _, Backbone) {
 
   'use strict';
 
-  var Radio = {
+  var radio = {
 
     _channels: {},
+
+    vent: {},
+    commands: {},
+    reqres: {},
 
     // Get a channel
     channel: function( channelName ) {
@@ -97,35 +101,31 @@
     ]
   };
 
-  _.each( methods.vent, function( fn ) {
-    Radio[fn] = function( channelName ) {
+  var vent     = methods.vent;
+  var commands = _.union( methods.commands, methods.handler );
+  var reqres   = _.union( methods.reqres, methods.handler );
+
+  _.each( vent, function( fn ) {
+    radio.vent[fn] = function( channelName ) {
       var args = Array.prototype.slice.call( arguments, 1 );
       args.unshift( channelName, 'vent', fn );
-      Radio._forwardFn.apply( Radio, args );
+      radio._forwardFn.apply( radio, args );
     };
   });
 
-  _.each( methods.commands, function( fn ) {
-    Radio[fn] = function( channelName ) {
+  _.each( commands, function( fn ) {
+    radio.commands[fn] = function( channelName ) {
       var args = Array.prototype.slice.call( arguments, 1 );
       args.unshift( channelName, 'commands', fn );
-      Radio._forwardFn.apply( Radio, args );
+      radio._forwardFn.apply( radio, args );
     };
   });
 
-  _.each( methods.commands, function( fn ) {
-    Radio[fn] = function( channelName ) {
+  _.each( reqres, function( fn ) {
+    radio.reqres[fn] = function( channelName ) {
       var args = Array.prototype.slice.call( arguments, 1 );
       args.unshift( channelName, 'reqres', fn );
-      Radio._forwardFn.apply( Radio, args );
-    };
-  });
-
-  _.each( methods.handlers, function( fn ) {
-    Radio[fn] = function( channelName, type ) {
-      var args = Array.prototype.slice.call( arguments, 2 );
-      args.unshift( channelName, type, fn );
-      Radio._forwardFn.apply( Radio, args );
+      radio._forwardFn.apply( radio, args );
     };
   });
 
@@ -209,7 +209,7 @@
   });
 
   var WreqrExtension = {};
-  WreqrExtension.Radio = Radio;
+  WreqrExtension.radio = radio;
   WreqrExtension.Channel = Channel;
 
   return WreqrExtension;

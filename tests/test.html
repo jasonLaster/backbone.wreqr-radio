@@ -32,7 +32,6 @@
   <script src='../backbone.wreqr-radio.js'></script>
 
   <!-- Of course, the specs themselves as well -->
-  <script src='helpers/helpers.js'></script>
   <script src='spec/basic.js'></script>
   <script src='spec/channel/create.js'></script>
   <script src='spec/channel/reset.js'></script>
@@ -40,12 +39,17 @@
   <script src='spec/channel/connect-commands.js'></script>
   <script src='spec/channel/connect-requests.js'></script>
   <script src='spec/radio/channel.js'></script>
+  <script src='spec/radio/vent.js'></script>
+  <script src='spec/radio/commands.js'></script>
+  <script src='spec/radio/reqres.js'></script>
 
   <!-- Run mocha -->
   <script type='text/javascript'>
+  if (navigator.userAgent.indexOf('PhantomJS') < 0) {
     mocha
       .globals(['Backbone', '_']) // Globals
       .run();
+  }
   </script>
 
 </body>

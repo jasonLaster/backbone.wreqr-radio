@@ -1,72 +1,72 @@
 describe('Calling channel for a nonexistent channel', function() {
 
-    var
-    ch,
-    chName;
+  var
+  ch,
+  chName;
 
-    beforeEach(function() {
+  beforeEach(function() {
 
-      ch = Backbone.Radio.channel();
-      chName = ch.channelName;
+    ch = Backbone.radio.channel();
+    chName = ch.channelName;
 
-    });
+  });
 
-    it( 'should create a new instance of the channel for you', function() {
-      expect( ch ).to.be.instanceOf( Backbone.Wreqr.Channel );
-    });
+  it( 'should create a new instance of the channel for you', function() {
+    expect( ch ).to.be.instanceOf( Backbone.Wreqr.Channel );
+  });
 
 });
 
 describe('Calling channel with no arguments', function() {
 
-    var chName;
+  var chName;
 
-    beforeEach(function() {
+  beforeEach(function() {
 
-      chName = Backbone.Radio.channel().channelName;
+    chName = Backbone.radio.channel().channelName;
 
-    });
+  });
 
-    it( 'should return an instance of the default channel', function() {
-      expect( chName ).to.equal( '/' );
-    });
+  it( 'should return an instance of the default channel', function() {
+    expect( chName ).to.equal( '/' );
+  });
 
 });
 
 describe('Calling channel with a name argument for a nonexistent channel', function() {
 
-    var
-    tName = 'lala',
-    chName;
+  var
+  tName = 'lala',
+  chName;
 
-    beforeEach(function() {
+  beforeEach(function() {
 
-      chName = Backbone.Radio.channel( tName ).channelName;
+    chName = Backbone.radio.channel( tName ).channelName;
 
-    });
+  });
 
-    it( 'should return a channel by that name', function() {
-      expect( chName ).to.equal( tName );
-    });
+  it( 'should return a channel by that name', function() {
+    expect( chName ).to.equal( tName );
+  });
 
 });
 
 describe('Calling channel twice with the same name', function() {
 
-    var
-    tName = 'lala',
-    chOne,
-    chTwo;
+  var
+  tName = 'lala',
+  chOne,
+  chTwo;
 
-    beforeEach(function() {
+  beforeEach(function() {
 
-      chOne = Backbone.Radio.channel( tName );
-      chTwo = Backbone.Radio.channel( tName );
+    chOne = Backbone.radio.channel( tName );
+    chTwo = Backbone.radio.channel( tName );
 
-    });
+  });
 
-    it( 'should return the same channel', function() {
-      expect( chOne ).to.equal( chTwo );
-    });
+  it( 'should return the same channel', function() {
+    expect( chOne ).to.equal( chTwo );
+  });
 
 });
