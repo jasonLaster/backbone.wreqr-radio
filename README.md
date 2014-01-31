@@ -1,17 +1,21 @@
 backbone.wreqr-radio
 ================
 
-`backbone.wreqr-radio` is a library that allows you to organize multiple instances of `Backbone.Wreqr` into groups called Channels.
+Wreqr Radio is a library that allows you to work with multiple instances of `Backbone.Wreqr`, organized into groups called Channels.
 
-## About
+## Introduction
 
-The three messaging systems of `Wreqr`, an event aggregator, commands, and request-response, are convenient ways to communicate information within your application. `wreqr-radio` introduces a new concept called a Channel, which is simply a collection of those three messaging systems bundled together with an associated name.
+The three messaging systems of `Wreqr`, an event aggregator, commands, and request-response, are convenient ways to communicate information within your application. What's missing from `Wreqr`, however, is a convention for handling multiple instances of those messaging systems.
 
-With `wreqr-radio` you can manage as many Channels as you'd like throughout your application. An example use case is having a Channel for each component of your application and a single global Channel that connects them.
+Wreqr Radio solves this issue by introducing a concept called a Channel. Channels are simply a collection of the three messaging systems bundled together with an associated name.
+
+With Wreqr Radio you can manage as many Channels as you'd like throughout your application. An example use case is having a Channel for each component of your application and a single global Channel that connects them.
 
 ## Installation
 
-Clone this repository or install via bower: `bower install backbone.wreqr-radio`
+Clone this repository or install via bower.
+
+`bower install backbone.wreqr-radio`
 
 Include the file `backbone.wreqr-radio.js` in your application's scripts bundle.
 
@@ -33,9 +37,14 @@ This library consistently uses the following naming convention for each instance
 
 Returns the channel with the supplied `channelName`. If no `channelName` is supplied the default channel is returned.
 
+_Wreqr Radio is also available via `Backbone.Wreqr.radio`_
+
+
+## Channel API
+
 ### Channels Wreqr
 
-A channel is just an object with an instance of `vent`, `commands`, and `reqres` attached to it. You can use these messaging systems on each channel as you're accustomed to.
+A channel is just an object with an instance of `vent`, `commands`, and `reqres` attached to it. You can use these messaging systems on each channel as usual.
 
 ```js
 var channel = Backbone.radio.channel();
@@ -47,7 +56,7 @@ channel.reqres.setHandler( 'aRequest', requestCb );
 
 ### Connect Events to the Channel
 
-Channels have three convenience functions to make this a bit more tolerable when attaching a large number of events:
+Channels have three convenience functions to attaching a large number of events a bit more tolerable.
 
 `connectEvents( ventsHash )`
 
@@ -62,7 +71,7 @@ The first argument of these functions are hashes of events.
 var someChannel = Backbone.radio.channel( 'lala' );
 
 // Create the hash of events and their callbacks. The callback can
-// either be the name of a function on `this`, or the function itself
+// either be the name of a function on the channel, or the function itself
 var ventsHash = {
   'something:happened': 'fnName',
   'somethingElse:happened': this.callbackFn
@@ -76,9 +85,17 @@ All three connect functions will return the `channel`.
 
 ### Reset the Channel
 
-`resetChannel()`
+`reset()`
 
-Remove all of the listeners and handlers for each messaging system on the Channel. Returns the Channel.
+Remove all of the listeners and handlers on the channel. Returns the Channel.
+
+```js
+// Get the channel
+var ch = Backbone.radio.channel( 'myChannel' );
+
+// Reset the channel
+ch.reset();
+```
 
 ## Global API
 
