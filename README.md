@@ -97,9 +97,9 @@ var ch = Backbone.radio.channel( 'myChannel' );
 ch.reset();
 ```
 
-## Global API
+## 'Top Level' API
 
-If you want to communicate on a channel but don't want to keep a reference of it, you can do so through the `radio` object directly.
+If you want to communicate on a channel but don't need to keep a reference of it, you can do so through the `radio` object directly.
 
 ```js
 // Attach a listener on the vent of `someChannel`
