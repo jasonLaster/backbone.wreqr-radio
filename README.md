@@ -40,7 +40,7 @@ Returns the channel with the supplied `channelName`. If no `channelName` is supp
 _Wreqr Radio is also available via `Backbone.Wreqr.radio`_
 
 
-## Channel API
+## Channel Prototype
 
 ### Channels Wreqr
 
