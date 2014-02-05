@@ -169,7 +169,6 @@
     _connect: function( type, hash ) {
 
       if ( !hash ) { return; }
-      hash = this._normalizeMethods( hash );
       var method = ( type === 'vent' ) ? 'on' : 'setHandler';
       _.each( hash, function(fn, eventName) {
         this[type][method]( eventName, _.bind(fn, this) );
@@ -180,31 +179,6 @@
     _attach: function( type, method, eventName, fn ) {
       this[type][method]( eventName, _.bind(fn, this) );
     },
-
-    // Parse channel hashes of the form
-    // {
-    //   'someEvent'     : fnReference,
-    //   'someOtherEvent': 'fnName'
-    // }
-    // returning an object of the same form
-    // with actual function references (when they exist)
-    // instead of strings
-    _normalizeMethods: function( hash ) {
-
-      var newHash = {}, method;
-      _.each( hash, function(fn, eventName) {
-        method = fn;
-        if ( !_.isFunction(method) ) {
-          method = this[method];
-        }
-        if ( !method ) {
-          return;
-        }
-        newHash[eventName] = method;
-      }, this);
-      return newHash;
-
-    }
 
   });
 
