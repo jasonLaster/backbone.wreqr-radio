@@ -70,11 +70,10 @@ The first argument of these functions are hashes of events.
 // Access the 'lala' channel
 var someChannel = Backbone.radio.channel( 'lala' );
 
-// Create the hash of events and their callbacks. The callback can
-// either be the name of a function on the channel, or the function itself
+// Create the hash of events and their callbacks
 var ventsHash = {
-  'something:happened': 'fnName',
-  'somethingElse:happened': this.callbackFn
+  'something:happened': someCallbackFn,
+  'somethingElse:happened': anotherCallbackFn
 };
 
 // Attach them

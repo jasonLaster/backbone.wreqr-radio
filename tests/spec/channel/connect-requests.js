@@ -4,25 +4,21 @@ describe('Executing `connectRequests` with a hash as the first argument', functi
   ch,
   label1 = 'one',
   label2 = 'two',
-  label3 = 'three',
-  obj,
+  cbOne,
+  cbTwo,
   p,
   ret,
   requestsHash;
 
   beforeEach(function() {
 
-    obj = {
-      lala: function() {},
-      lalala: function() {}
-    };
-
-    ch = _.extend( new Backbone.Wreqr.Channel( 'test' ), obj);
+    cbOne = function() {};
+    cbTwo = function() {};
+    ch = Backbone.radio.channel();
 
     requestsHash = {};
-    requestsHash[label1] = 'lala';
-    requestsHash[label2] = ch.lalala;
-    requestsHash[label3] = 'alala';
+    requestsHash[label2] = cbOne;
+    requestsHash[label1] = cbTwo;
 
     ret = ch.connectRequests( requestsHash );
 
@@ -30,9 +26,12 @@ describe('Executing `connectRequests` with a hash as the first argument', functi
 
   });
 
+  afterEach(function() {
+    ch.reset();
+  });
+
   it( 'should attach the listeners to the Channel', function() {
       expect(p).to.contain.keys( label1, label2 );
-      expect(p).to.not.contain.keys( label3 );
   });
 
   it( 'should return the Channel', function() {
