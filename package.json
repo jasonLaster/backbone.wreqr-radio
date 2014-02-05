@@ -1,6 +1,6 @@
 {
   "name": "backbone.wreqr-radio",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "An organizational system for managing multiple Wreqr instances.",
   "main": "backbone.wreqr-radio.js",
   "scripts": {

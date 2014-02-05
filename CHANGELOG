@@ -1,0 +1,8 @@
+v1.1.0:
+  date: 2014-02-05
+  changes:
+    - Removed support for function names in events hashes
+v1.0.0:
+  date: 2014-01-31
+  changes:
+    - First official release
