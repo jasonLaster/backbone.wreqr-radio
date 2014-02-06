@@ -1,6 +1,8 @@
 backbone.wreqr-radio
 ================
 
+[![Travis Build Status](https://api.travis-ci.org/Puppets/backbone.wreqr-radio.png)](https://travis-ci.org/Puppets/backbone.wreqr-radio)
+
 Wreqr Radio is a library that allows you to work with multiple instances of `Backbone.Wreqr`, organized into groups called Channels.
 
 ## Introduction
