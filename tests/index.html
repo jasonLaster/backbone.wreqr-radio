@@ -15,6 +15,11 @@
     mocha.setup('bdd');
   </script>
 
+  <!-- Load up blanket -->
+  <script type="text/javascript" src="../node_modules/blanket/dist/mocha/blanket_mocha.js"
+            data-cover-flags="branchTracking"></script>
+  <script type="text/javascript" src="../node_modules/grunt-blanket-mocha/support/mocha-blanket.js"></script>
+
   <!-- Load & configure chai & sinon -->
   <script src='../bower_components/chai/chai.js'></script>
   <script src='../bower_components/sinon-chai/lib/sinon-chai.js'></script>
@@ -29,7 +34,7 @@
   <script src='../bower_components/backbone.wreqr/lib/backbone.wreqr.js'></script>
   
   <!-- Load the test scripts -->
-  <script src='../backbone.wreqr-radio.js'></script>
+  <script src='../backbone.wreqr-radio.js' data-cover></script>
 
   <!-- Of course, the specs themselves as well -->
   <script src='spec/basic.js'></script>
@@ -45,7 +50,13 @@
 
   <!-- Run mocha -->
   <script type='text/javascript'>
+
+  if (window.PHANTOMJS) {
+    blanket.options("reporter", "../node_modules/grunt-blanket-mocha/support/grunt-reporter.js");
+  }
+
   if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+
     mocha
       .globals(['Backbone', '_']) // Globals
       .run();
