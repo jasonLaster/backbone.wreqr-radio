@@ -9,10 +9,10 @@ describe('Calling `off` from the radio object', function() {
     eventName = 'some:event';
     obj = { test: true, testTwo: false };
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'on' );
-    Backbone.radio.vent.on( chName, eventName, fn, obj );
+    WreqrRadio.radio.vent.on( chName, eventName, fn, obj );
 
   });
 
@@ -40,10 +40,10 @@ describe('Calling `off` from the radio object with no additional arguments', fun
 
     chName = 'test';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'off' );
-    Backbone.radio.vent.off( chName );
+    WreqrRadio.radio.vent.off( chName );
 
   });
 
@@ -69,10 +69,10 @@ describe('Passing additional arguments to the `off` function', function() {
     fn = function() {};
     eventName = 'some:event';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'off' );
-    Backbone.radio.vent.off( chName, eventName, fn );
+    WreqrRadio.radio.vent.off( chName, eventName, fn );
 
   });
 
@@ -99,10 +99,10 @@ describe('Calling `once` from the radio object', function() {
     eventName = 'some:event';
     obj = { test: true, testTwo: false };
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'once' );
-    Backbone.radio.vent.once( chName, eventName, fn, obj );
+    WreqrRadio.radio.vent.once( chName, eventName, fn, obj );
 
   });
 
@@ -133,10 +133,10 @@ describe('Calling `trigger` from the radio object', function() {
     eventName = 'some:event';
     obj = { test: true, testTwo: false };
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'trigger' );
-    Backbone.radio.vent.trigger( chName, eventName, fn, obj, true, '2' );
+    WreqrRadio.radio.vent.trigger( chName, eventName, fn, obj, true, '2' );
 
   });
 
@@ -164,10 +164,10 @@ describe('Calling `stopListening` from the radio object with no extra arguments'
 
     chName = 'test';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'stopListening' );
-    Backbone.radio.vent.stopListening( chName );
+    WreqrRadio.radio.vent.stopListening( chName );
 
   });
 
@@ -194,10 +194,10 @@ describe('Passing additional arguments to `stopListening`', function() {
     eventName = 'some:event';
     obj = { test: true, testTwo: false };
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'stopListening' );
-    Backbone.radio.vent.stopListening( chName, eventName, fn, obj );
+    WreqrRadio.radio.vent.stopListening( chName, eventName, fn, obj );
 
   });
 
@@ -224,10 +224,10 @@ describe('Calling `listenTo` from the radio object', function() {
     eventName = 'some:event';
     obj = { test: true, testTwo: false };
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'listenTo' );
-    Backbone.radio.vent.listenTo( chName, eventName, fn, obj, true, '2' );
+    WreqrRadio.radio.vent.listenTo( chName, eventName, fn, obj, true, '2' );
 
   });
 
@@ -258,10 +258,10 @@ describe('Calling `listenToOnce` from the radio object', function() {
     eventName = 'some:event';
     obj = { test: true, testTwo: false };
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.vent, 'listenToOnce' );
-    Backbone.radio.vent.listenToOnce( chName, eventName, fn, obj, true, '2' );
+    WreqrRadio.radio.vent.listenToOnce( chName, eventName, fn, obj, true, '2' );
 
   });
 

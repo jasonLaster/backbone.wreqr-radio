@@ -7,10 +7,10 @@ describe('Calling `execute` from the radio.commands object', function() {
     chName = 'test';
     commandName = 'some:command';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.commands, 'execute' );
-    Backbone.radio.commands.execute( chName, commandName );
+    WreqrRadio.radio.commands.execute( chName, commandName );
 
   });
 
@@ -40,10 +40,10 @@ describe('Calling `setHandler` from the radio.commands object', function() {
     fn = function() {};
     commandName = 'some:command';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.commands, 'setHandler' );
-    Backbone.radio.commands.setHandler( chName, commandName, fn );
+    WreqrRadio.radio.commands.setHandler( chName, commandName, fn );
 
   });
 
@@ -76,10 +76,10 @@ describe('Calling `setHandlers` from the radio.commands object', function() {
     };
     commandName = 'some:command';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.commands, 'setHandlers' );
-    Backbone.radio.commands.setHandlers( chName, commandName, obj );
+    WreqrRadio.radio.commands.setHandlers( chName, commandName, obj );
 
   });
 
@@ -108,10 +108,10 @@ describe('Calling `removeHandlers` from the radio.commands object', function() {
     chName = 'test';
     commandName = 'some:command';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.commands, 'removeHandler' );
-    Backbone.radio.commands.removeHandler( chName, commandName );
+    WreqrRadio.radio.commands.removeHandler( chName, commandName );
 
   });
 
@@ -139,10 +139,10 @@ describe('Calling `removeAllHandlers` from the radio.commands object', function(
 
     chName = 'test';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.commands, 'removeAllHandlers' );
-    Backbone.radio.commands.removeAllHandlers( chName );
+    WreqrRadio.radio.commands.removeAllHandlers( chName );
 
   });
 

@@ -8,7 +8,7 @@ describe('Creating a Channel', function() {
 
   beforeEach(function() {
 
-    ch = new Backbone.Wreqr.Channel( name );
+    ch = new WreqrRadio.Channel( name );
     chName = ch.channelName;
     v = ch.vent;
     c = ch.commands;

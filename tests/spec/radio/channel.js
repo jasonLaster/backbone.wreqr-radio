@@ -6,13 +6,13 @@ describe('Calling channel for a nonexistent channel', function() {
 
   beforeEach(function() {
 
-    ch = Backbone.radio.channel();
+    ch = WreqrRadio.radio.channel();
     chName = ch.channelName;
 
   });
 
   it( 'should create a new instance of the channel for you', function() {
-    expect( ch ).to.be.instanceOf( Backbone.Wreqr.Channel );
+    expect( ch ).to.be.instanceOf( WreqrRadio.Channel );
   });
 
 });
@@ -23,7 +23,7 @@ describe('Calling channel with no arguments', function() {
 
   beforeEach(function() {
 
-    chName = Backbone.radio.channel().channelName;
+    chName = WreqrRadio.radio.channel().channelName;
 
   });
 
@@ -41,7 +41,7 @@ describe('Calling channel with a name argument for a nonexistent channel', funct
 
   beforeEach(function() {
 
-    chName = Backbone.radio.channel( tName ).channelName;
+    chName = WreqrRadio.radio.channel( tName ).channelName;
 
   });
 
@@ -60,8 +60,8 @@ describe('Calling channel twice with the same name', function() {
 
   beforeEach(function() {
 
-    chOne = Backbone.radio.channel( tName );
-    chTwo = Backbone.radio.channel( tName );
+    chOne = WreqrRadio.radio.channel( tName );
+    chTwo = WreqrRadio.radio.channel( tName );
 
   });
 

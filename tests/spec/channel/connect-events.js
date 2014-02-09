@@ -14,7 +14,7 @@ describe('Executing `connectEvents` with a hash as the first argument', function
 
     cbOne = function() {};
     cbTwo = function() {};
-    ch = Backbone.radio.channel();
+    ch = WreqrRadio.radio.channel();
 
     eventsHash = {};
     eventsHash[label2] = cbOne;

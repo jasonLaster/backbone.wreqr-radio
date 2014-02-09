@@ -24,13 +24,15 @@
   "bugs": {
     "url": "https://github.com/Puppets/backbone.wreqr-radio/issues"
   },
-  "devDependencies": {
+  "devDependencies": { 
     "grunt": "~0.4.2",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-jshint": "~0.8.0",
     "matchdep": "~0.3.0",
     "blanket": "~1.1.6",
     "grunt-blanket-mocha": "~0.4.0",
-    "grunt-contrib-connect": "~0.6.0"
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-preprocess": "~4.0.0",
+    "grunt-template": "~0.2.3"
   }
 }

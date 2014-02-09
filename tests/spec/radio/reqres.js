@@ -7,10 +7,10 @@ describe('Calling `request` from the radio object', function() {
     chName = 'test';
     reqName = 'some:request';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.reqres, 'request' );
-    Backbone.radio.reqres.request( chName, reqName );
+    WreqrRadio.radio.reqres.request( chName, reqName );
 
   });
 
@@ -40,10 +40,10 @@ describe('Calling `setHandler` from the radio.reqres object', function() {
     fn = function() {};
     commandName = 'some:command';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.reqres, 'setHandler' );
-    Backbone.radio.reqres.setHandler( chName, commandName, fn );
+    WreqrRadio.radio.reqres.setHandler( chName, commandName, fn );
 
   });
 
@@ -76,10 +76,10 @@ describe('Calling `setHandlers` from the radio.reqres object', function() {
     };
     commandName = 'some:command';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.reqres, 'setHandlers' );
-    Backbone.radio.reqres.setHandlers( chName, commandName, obj );
+    WreqrRadio.radio.reqres.setHandlers( chName, commandName, obj );
 
   });
 
@@ -108,10 +108,10 @@ describe('Calling `removeHandler` from the radio.reqres object', function() {
     chName = 'test';
     commandName = 'some:command';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.reqres, 'removeHandler' );
-    Backbone.radio.reqres.removeHandler( chName, commandName );
+    WreqrRadio.radio.reqres.removeHandler( chName, commandName );
 
   });
 
@@ -139,10 +139,10 @@ describe('Calling `removeAllHandlers` from the radio.reqres object', function() 
 
     chName = 'test';
 
-    ch = Backbone.radio.channel( chName );
+    ch = WreqrRadio.radio.channel( chName );
 
     stub = sinon.stub( ch.reqres, 'removeAllHandlers' );
-    Backbone.radio.reqres.removeAllHandlers( chName );
+    WreqrRadio.radio.reqres.removeAllHandlers( chName );
 
   });
 
