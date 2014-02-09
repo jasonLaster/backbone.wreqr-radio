@@ -174,11 +174,7 @@
         this[type][method]( eventName, _.bind(fn, this) );
       }, this);
 
-    },
-
-    _attach: function( type, method, eventName, fn ) {
-      this[type][method]( eventName, _.bind(fn, this) );
-    },
+    }
 
   });
 
