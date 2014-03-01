@@ -62,7 +62,7 @@ Channels have three convenience functions to attaching a large number of events 
 
 `connectEvents( ventsHash )`
 
-`connectComands( commandsHash )`
+`connectCommands( commandsHash )`
 
 `connectRequests( requestsHash )`
 
