@@ -60,13 +60,14 @@ channel.reqres.setHandler( 'aRequest', requestCb );
 
 Channels have three convenience functions to attaching a large number of events a bit more tolerable.
 
-`connectEvents( ventsHash )`
+`connectEvents( ventsHash [, context] )`
 
-`connectCommands( commandsHash )`
+`connectCommands( commandsHash [, context] )`
 
-`connectRequests( requestsHash )`
+`connectRequests( requestsHash [, context] )`
 
-The first argument of these functions are hashes of events.
+The first argument of these functions are hashes of events. The optional second argument is the
+context to use within the callback.
 
 ```js
 // Access the 'lala' channel
