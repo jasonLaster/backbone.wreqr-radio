@@ -120,26 +120,27 @@ var WreqrRadio = (function(_, Backbone, undefined) {
   },
 
   // Connect a hash of events; one for each messaging system
-  connectEvents: function( hash ) {
-    this._connect( 'vent', hash );
+  connectEvents: function( hash, context ) {
+    this._connect( 'vent', hash, context );
     return this;
   },
-  connectCommands: function( hash ) {
-    this._connect( 'commands', hash );
+  connectCommands: function( hash, context ) {
+    this._connect( 'commands', hash, context );
     return this;
   },
-  connectRequests: function( hash ) {
-    this._connect( 'reqres', hash );
+  connectRequests: function( hash, context ) {
+    this._connect( 'reqres', hash, context );
     return this;
   },
 
   // Attach the handlers to a given message system `type`
-  _connect: function( type, hash ) {
+  _connect: function( type, hash, context ) {
 
     if ( !hash ) { return; }
+    context = context || this;
     var method = ( type === 'vent' ) ? 'on' : 'setHandler';
     _.each( hash, function(fn, eventName) {
-      this[type][method]( eventName, _.bind(fn, this) );
+      this[type][method]( eventName, _.bind(fn, context) );
     }, this);
 
   }

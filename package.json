@@ -1,8 +1,8 @@
 {
   "name": "backbone.wreqr-radio",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "An organizational system for managing multiple Wreqr instances.",
-  "main": "backbone.wreqr-radio.js",
+  "main": "build/backbone.wreqr-radio.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/Puppets/backbone.wreqr-radio/issues"
   },
-  "devDependencies": { 
+  "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-jshint": "~0.8.0",
@@ -33,6 +33,7 @@
     "grunt-blanket-mocha": "~0.4.0",
     "grunt-contrib-connect": "~0.6.0",
     "grunt-preprocess": "~4.0.0",
-    "grunt-template": "~0.2.3"
+    "grunt-template": "~0.2.3",
+    "grunt-mocha-cov": "~0.2.1"
   }
 }
