@@ -8,7 +8,7 @@ describe('Running `resetChannel`', function() {
 
   beforeEach(function() {
 
-    ch = new Backbone.Wreqr.Channel( 'test' );
+    ch = new WreqrRadio.Channel( 'test' );
     v = ch.vent;
     c = ch.commands;
     r = ch.reqres;

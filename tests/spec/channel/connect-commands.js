@@ -14,7 +14,7 @@ describe('Executing `connectCommands` with a hash as the first argument', functi
 
     cbOne = function() {};
     cbTwo = function() {};
-    ch = Backbone.radio.channel();
+    ch = WreqrRadio.radio.channel();
 
     commandsHash = {};
     commandsHash[label2] = cbOne;
